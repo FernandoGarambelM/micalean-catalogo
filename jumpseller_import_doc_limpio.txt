@@ -1,7 +1,0 @@
-Importar productos a través de un archivo CSV
-Importar productos a través de un archivo CSV
-Si tienes que actualizar muchos productos en tu tienda, importar productos desde un archivo CSV puede ser muy útil. Importar productos masivamente también es una forma conveniente de mover productos de una tienda existente a una nueva tienda Jumpseller.
-Optimiza tu Trabajo: elige el método de importación correcta para la tarea
-El CSV principal de productos es completo, pero puede ser lento y tiene límites de procesamiento porque maneja datos pesados como imágenes y descripciones HTML. Para actualizaciones más específicas, frecuentes y de alta velocidad, hemos desarrollado estas herramientas especializadas:
-Objetivo
-Herramienta Recomendada

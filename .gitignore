@@ -9,7 +9,13 @@ prueba_*
 panel6_crop.png
 twiscar_clean_cutout.png
 
-# Omitir fotos pesadas originales de WhatsApp para mantener el repositorio liviano (<2MB)
+# Mantener solo localmente (no subir al repositorio de GitHub)
 productos/
 micalean/
 Reuniones/
+*.py
+*.txt
+*.md
+plantilla_productos.csv
+documentacion_importacion_companera.csv
+micalean.png
