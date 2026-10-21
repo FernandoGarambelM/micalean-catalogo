@@ -1,0 +1,517 @@
+Si tienes que actualizar muchos productos en tu tienda, importar productos desde un archivo CSV puede ser muy útil. Importar productos masivamente también es una forma conveniente de mover productos de una tienda existente a una nueva tienda Jumpseller.
+Optimiza tu Trabajo: elige el método de importación correcta para la tarea
+El CSV principal de productos es completo, pero puede ser lento y tiene límites de procesamiento porque maneja datos pesados como imágenes y descripciones HTML. Para actualizaciones más específicas, frecuentes y de alta velocidad, hemos desarrollado estas herramientas especializadas:
+Objetivo
+Herramienta Recomendada
+Beneficio
+Configurar el Catálogo
+CSV de Productos
+(Esta Guía)
+Control total sobre imágenes, descripciones y categorías.
+Actualizar Stock
+Guía de Administración de Inventario
+Más rápido.
+Optimizado para actualizar stock en todas las ubicaciones.
+Actualizar Precios
+Guía de Administración de Precios
+Ligero.
+Específico para precios, costo por ítem y precios por volumen.
+El Archivo de Importación
+El archivo CSV debe estar en codificado en formato UTF-8, y todos los caracteres especiales deben estar codificados correctamente. No se recomienda Microsoft Office para crear el archivo; en su lugar, recomendamos utilizar
+Google Sheets
+o
+LibreOffice
+que gestionan la codificación requerida sin complicaciones.
+Para asegurarte de que tu archivo de importación es correcto, comprueba
+esta plantilla de ejemplo
+. En ella se incluye la cabecera de las columnas con todos los campos, dos productos con variantes y un producto sin variantes. Las columnas del archivo CSV deben seguir el orden de la plantilla de ejemplo.
+Campos
+Nombre
+Descripción y Observaciones Importantes
+Permalink
+Identificador único de un producto. Deberá quedar en
+blanco
+para crear un nuevo producto.
+Name
+Nombre del Producto.
+Description
+Descripción del Producto.
+Meta Title
+Título del producto para mostrar en resultados de búsqueda en Google.
+Meta Description
+Descripción del producto para mostrar en los resultados de búsqueda de Google
+Width
+Ancho del producto (para fines de embalaje y transporte). No uses el punto como un separador de miles. Usa el punto para separar decimales (no la coma).
+Length
+Largo del producto (para fines de embalaje y transporte). No uses el punto como separador de miles. Utiliza el punto para separar decimales (no la coma).
+Height
+Alto del producto (para fines de embalaje y transporte). No uses el punto como separador de miles. Utiliza el punto para separar decimales (no la coma).
+Brand
+Marca del Producto.
+Barcode
+Código de Barras del Producto (ej. GTIN, UPC)
+Categories
+Nombre(s) de la(s) categoría(s) de los productos. Por ejemplo: Electrónica, Electrónica/Audio, para la categoría electrónica y la subcategoría Audio
+Images
+Una o más imágenes de un Producto. Los enlaces a las multiples imágenes por producto deben estar separados por una coma (sin espacios entre uno y otro) y estos enlaces deben estar públicamente accesibles. Ejemplo: “http://domain.com/images/a.jpg”,”http://domain.com/images/b.jpg” Revisa nuestro apartado sobre
+imágenes
+para asegurarte que estás tomando en cuenta las consideraciones importantes.
+Digital
+Definir “YES” si es un producto digital o “NO” si no lo es.
+Por defecto, si no importa esta columna, el producto será no-digital.
+Featured
+Definir “YES” si es un producto destacado o “NO” si no lo es.
+Por defecto, si no importa esta columna, el producto no será destacado.
+Status
+El estado de producto en la tienda. Puede ser uno de los tres valores:
+available
+(disponible),
+not-available
+(no disponible)y
+disabled
+(deshabilitado).
+SKU
+Identificación de la unidad de mantenimiento.
+Weight
+Peso o Peso Volumétrico de un producto. No uses el punto como separador de miles. Utiliza el punto para separar decimales (no la coma).
+Cost per item
+Opcional: Registra el costo del artículo. Permite estimar los ingresos por item
+Compare at price
+Opcional: Permite mostrar un precio referencial. Mostrará el precio con un descuento vs su precio actual (el que se registre en la columna
+Price
+). Este monto no se importará desde Shopify si es superior al precio del producto.
+Stock
+Cantidad de stock del artículo.
+Stock Unlimited
+Definir como “NO” si el inventario no es ilimitado o “YES” si es que lo es.
+Stock Notification
+Se define como “NO” si el Umbral de Stock no está definido o no es necesario, o “SÍ” si lo está.
+Stock Threshold
+Permite definir un Nivel mínimo de stock (unidades), activando una notificación al alcanzarse.
+Price
+Precio de un producto. No uses el punto como separador de miles. Utiliza el punto para separar decimales (no la coma).
+Quotable
+Definir “YES” si es un producto disponible para cotización o “NO” si no lo es.
+Por defecto, si no importa esta columna, el producto no será disponible para cotización.
+Minimum Quantity
+Opcional: Permite dedinir una cantidad mínima de unidades necesarias para efectuar la compra. Debe ser mayor que 0. Sólo se aplica a productos, no a variantes.
+Maximum Quantity
+Opcional: Permite dedinir una cantidad máxima de unidades que se pueden comprar por pedido. Debe ser mayor que 0 y si hay cantidad mínima, debe ser mayor o igual a ella. Sólo se aplica a productos, no a variantes.
+Variant Image
+Opcional: URL a la imagen específica de la variante.
+Variant 1 Option Name
+Nombre de primera opción que genera una variante del producto, ejemplo: Color.
+Variant 1 Option Type
+Tipo de la primera opción que genera una variante del producto.
+Por defecto el tipo de campo es “option”
+.
+Variant 1 Option Value
+Nombre del valor de la primera Variante de un producto, ej: Amarillo, Azul o Rojo.
+Variant 1 Option Custom
+Valor de color de la primera variante de un producto, p. ej.: #ffff00, #0000ff o #ff0000. Vacío para otros tipos. En el futuro, podría tener otros valores.
+Variant N Option Name
+Nombre de la opción N de la variante de un producto. N debiera ser un número secuencial, ej: 1, 2, 3, 4.
+Variant N Option Type
+Tipo de campo de la variante N de un producto, debe ser ‘option’,’input’,’text’ o ‘file’.
+Variant N Option Value
+Valor de la variante N de un producto. N debiera ser un número secuencial, ej: 1, 2, 3, 4
+Variant N Option Custom
+Valor de color de la opción N de un producto, p. ej.: #ffff00, #0000ff o #ff0000. Vacío para otros tipos. En el futuro, podría tener otros tipos de valores. N debe ser un número secuencial, p. ej.: 1, 2, 3, 4.
+Custom Field 1 Label
+Etiqueta del campo personalizado 1 que se creó anteriormente.
+Custom Field 1 Value
+Valor que se agregará al campo personalizado 1.
+Custom Field 1 Type
+Tipo de campo personalizado 1. Valores aceptados: ‘selection’, ‘text’.
+Custom Field N Label
+Etiqueta del campo personalizado N que se creó anteriormente.
+Custom Field N Value
+Valor que se agregará al campo personalizado N.
+Custom Field N Type
+Tipo del campo personalizado N. Valores aceptados: ‘selection’, ‘text’.
+Google Product Category
+La
+categoría para Google Shopping
+debe escribirse exactamente igual a la que está en la lista que aparece en la página del producto cuando lo creas. Por ejemplo: Confecciones & Accesorios > Ropa > Trajes > Esmoquin.
+Debes dejar un espacio en blanco entre cada categoría y el símbolo >.
+Option Name
+Nombre de opción de un producto para opciones que no generan variantes, ej: Estampado de camiseta.
+Option Value
+Valor de opción de un producto para opciones que no generan variantes. Vacío para el tipo “file”. Por ejemplo: Su Nombre Aquí.
+Option Type
+Tipo de opción de un producto para opciones que no generan variantes. Valores aceptados: ‘file’, ‘input’, ‘text’.
+Product Type
+Opcional: Tipo de producto. Puede ser physical, digital, o gift_card. Se asume “physical” si no se especifica.
+Nota: gift_card solo se permitirá si está suscrito al plan Premium o superior.
+Days to Expire
+Número de días de validez de la tarjeta de regalo después de la fecha de compra.
+Nota: Este atributo solo se tiene en cuenta al importar un producto de tipo
+gift_card
+y debe ser mayor que 0.
+Permalinks
+El enlace permanente es el identificador único de cada producto.
+Jumpseller busca un producto a través de su enlace permanente.
+Puedes encontrar el enlace permanente de cada producto en su URL. Por ejemplo, el enlace permanente
+“yellow-tennis”
+está asociado al producto llamado
+“Yellow Tennis”
+. Por lo tanto, la URL es:
+www.mitienda.com/yellow-tennis
+.
+Los enlaces permanentes están compuestos por letras minúsculas o números y no contienen espacios.
+Cuando subes un archivo, pueden darse varios escenarios con respecto al enlace permanente:
+1. Si estás actualizando únicamente datos de productos existentes:
+En este caso,
+NO
+debes modificar la columna de enlace permanente. Solo el resto de los datos.
+2. Si estás subiendo únicamente productos nuevos:
+En este caso, la columna de enlace permanente debe estar vacía, ya que el sistema asignará ese valor automáticamente (utilizando los nombres de los productos).
+Ahora también es posible crear productos nuevos con enlaces permanentes personalizados. Para ello, antes de importar el archivo CSV, deberás activar la opción:
+“Agregar como un nuevo producto cuando no se encuentre el enlace permanente.”
+Si el archivo CSV contiene un enlace permanente que ya ha sido establecido, se usará para actualizar el producto existente.
+Para evitar errores en la creación de productos, si se encuentra un enlace permanente nuevo sin haber activado esta opción, aparecerá un mensaje de error.
+3. Si estás subiendo un archivo con productos nuevos y productos existentes a los que les has modificado algunos datos:
+El enlace permanente de los productos nuevos debe estar vacío. A la vez, el permalink de los productos pre-existentes
+NO
+debe ser modificado.
+Las Variantes del Producto
+Cuando se trata de productos que tienen variantes, la fila inicial contendrá información general sobre el producto, como su nombre, descripción y categoría. Las filas siguientes compartirán el mismo Permalink, pero a partir de la columna SKU de la derecha, proporcionarán información específica sobre la variante, como su stock, precio e imagen de la variante.
+Este ejemplo contiene dos productos con variantes y un producto sin variantes:
+Permalink
+Nombre
+(…)
+SKU
+(…)
+Stock
+(…)
+Precio
+product-with-colors
+Product With Colors
+(…)
+(…)
+0
+(…)
+0
+product-with-colors
+(…)
+PROD001
+(…)
+1001
+(…)
+100
+product-with-colors
+(…)
+PROD002
+(…)
+1002
+(…)
+101
+product-with-colors
+(…)
+PROD003
+(…)
+1003
+(…)
+102
+product-with-size
+Product with size
+(…)
+(…)
+0
+(…)
+0
+product-with-size
+(…)
+PROD004
+(…)
+1004
+(…)
+103
+product-with-size
+(…)
+PROD005
+(…)
+100
+(…)
+104
+product-with-size
+(…)
+PROD006
+(…)
+1006
+(…)
+1222
+product-with-size
+(…)
+PROD007
+(…)
+1007
+(…)
+106
+no-variants
+No Variants
+(…)
+PROD008
+(…)
+1008
+(…)
+107
+Abre una
+versión completa de esta tabla en Google Sheets
+.
+Para garantizar la integridad del archivo, los campos Stock y Precio son obligatorios para la primera fila de productos con variantes, aunque no se vayan a utilizar. Puedes utilizar un 0 o cualquier otro número en estos campos, como se muestra en el ejemplo.
+Las Variantes se contrastan con las opciones Nombre / Valor (por ejemplo, Talla: XL) y se actualizan las características de la Variante, como SKU, Peso y Stock.
+Si no podemos encontrar la combinación actual Nombre / Valores, se incorporará como nuevas opciones del producto.
+Las Imágenes
+Cuando importas productos nuevos o existentes en otra plataforma, las imágenes deben ser subidas a internet primero. Solo puedes usar URLs para tus imágenes.
+Consejo:
+usa un FTP externo para cargar imágenes y obtener su URL.
+Se pueden agregar varias imágenes por producto y deben estar separadas por comas y entre comillas dobles, por ejemplo: “http://myimage1.jpg,http://myimage2.jpg”. No utilices espacios entre la URL y las comas.
+Hay un tiempo máximo de descarga de 5 segundos por imagen. Las imágenes de tamaño de archivo no deben exceder de 1.5Mb
+Los enlaces Gdrive, Gphotos & Dropbox Share o Viewer no funcionarán para la columna Imágenes al importar archivos CSV. La función de importación necesita un “enlace directo” para descargar. Como alternativa gratuita, prueba
+ImgBB
+¿Por qué algunas imágenes no fueron importadas?
+En algunos casos, es posible que las imágenes aún no se hayan importado, ya que el proceso puede demorar algo de tiempo. Esto puede deberse a que importó un gran número de imágenes, el archivo CSV es demasiado grande o los servidores de imágenes son lentos.
+Puede haber muchas razones para bloquear la importación de imágenes, como por ejemplo:
+El tamaño de la imagen puede ser demasiado grande.
+Bloqueado por el servidor de imágenes.
+Codificación incorrecta.
+Espacios en URL.
+URL incorrecto (Jumpseller puede descargar imágenes sólo desde URL de imagen directas).
+Fácil Importación desde otras plataformas
+Jumpseller ofrece una solución simplificada para importar tus archivos de exportación de productos directamente desde Shopify, WooCommerce y Wix. Esta funcionalidad te permite migrar tus datos de productos a Jumpseller rápidamente y sin necesidad de conversión de formato.
+Cómo usarlo:
+Ve a tu Panel de Administración > Productos y selecciona Importar > Otra Plataforma.
+Sube el archivo de exportación de Shopify, WooCommerce o Wix.
+Sigue las instrucciones en pantalla para completar el proceso de importación.
+Para instrucciones detalladas y más información, por favor visita nuestro
+artículo de soporte de migración
+.
+¿Necesitas ayuda con otras plataformas?
+Si estás migrando desde una plataforma no listada aquí, nuestro equipo de soporte está listo para asistirte. Simplemente
+envía tu consulta y archivo
+, y te guiaremos a través del proceso.
+Guía de uso rápidas
+Actualiza los productos existentes en tu tienda
+Para actualizar la información de productos ya existentes:
+Exporta los productos actuales a un archivo CSV.
+Manten el link del “permalink” sin cambios.
+Editar los detalles del producto, como nombre, SKU o stock.
+Guarda tu archivo nuevamente en formato CSV.
+Marca las casillas en el encabezado de cada campo en la pantalla de importación.
+Haz clic en “Importar” y revisa los resultados de la importación en tu email.
+Subir Productos Nuevos
+Si tienes muchos productos nuevos y deseas hacer una carga masiva de los mismos, sigue estos pasos:
+Descarga nuestra
+plantilla de ejemplo
+Debes llenar los datos en los campos correspondientes.
+Manten el campo “permalink” vacio (crearás productos que no están en tu tienda Jumpseller).
+Asegúrate de no cambiar el orden de los campos prestablecidos en la plantilla.
+Asegúrate que las URL de las imágenes están escritas de manera correcta como lo indicado
+aqui
+Guarda tu archivo en formato CSV.
+Ve a tu Panel de Administración > Productos y selecciona “Importar Archivo”.
+Carga tu archivo CSV seleccionándolo de tu computador.
+Marca las casillas en el encabezado de cada campo en la pantalla de importación.
+Haz clic en “Importar” y revisa los resultados de la importación en tu email.
+Importante:
+No olvides marcar las casillas en el encabezado de cada campo en la pantalla de importación.
+Buenas prácticas de Excel para actualizar el inventario y los precios de los productos
+Supongamos que tienes una tienda online en Jumpseller en la que vendes algunos productos y también los ofreces en una tienda física. El objetivo es mantener el inventario actualizado para ambas tiendas.
+Hay varias herramientas que puedes utilizar, como integraciones con
+apps
+o la ayuda de un
+profesional
+para desarrollar una integración automática. Sin embargo, para las empresas más pequeñas, la opción más sencilla es utilizar la herramienta de importación de Jumpseller junto con Excel.
+En esta sección, te mostraremos las mejores prácticas en Excel para que puedas mantener actualizado tu inventario de Jumpseller utilizando esta herramienta. ¡Prepárate para agilizar la gestión de tu inventario y mantener sincronizadas tus tiendas online y físicas!
+Recuerda siempre utilizar la codificación adecuada (UTF-8).
+Muestra de datos
+Vamos a utilizar los mismos datos de ejemplo que en la sección anterior
+sección variantes de productos
+. En Jumpseller tienes 8 diferentes SKUs o unidades de producto.
+Permalink
+Nombre
+(…)
+SKU
+(…)
+Stock
+(…)
+Precio
+product-with-colors
+Product With Colors
+(…)
+(…)
+0
+(…)
+0
+product-with-colors
+(…)
+PROD001
+(…)
+1001
+(…)
+100
+product-with-colors
+(…)
+PROD002
+(…)
+1002
+(…)
+101
+product-with-colors
+(…)
+PROD003
+(…)
+1003
+(…)
+102
+product-with-size
+Product with size
+(…)
+(…)
+0
+(…)
+0
+product-with-size
+(…)
+PROD004
+(…)
+1004
+(…)
+103
+product-with-size
+(…)
+PROD005
+(…)
+100
+(…)
+104
+product-with-size
+(…)
+PROD006
+(…)
+1006
+(…)
+1222
+product-with-size
+(…)
+PROD007
+(…)
+1007
+(…)
+106
+no-variants
+No Variants
+(…)
+PROD008
+(…)
+1008
+(…)
+107
+Abre una
+versión completa de esta tabla en Google Sheets
+.
+Nuestro objetivo es utilizar una tabla externa para actualizar automáticamente el Stock y el Precio mediante una fórmula, digamos que dicha tabla externa tiene esta forma.
+SKU
+Precio
+Nivel de inventario
+PROD001
+100
+1001
+PROD002
+101
+1002
+PROD003
+102
+1003
+PROD004
+103
+1004
+PROD005
+104
+1005
+PROD006
+1222
+1006
+PROD007
+106
+1007
+PROD008
+107
+1008
+En Excel y también en Google Sheets hay varias fórmulas que pueden buscar una coordenada (SKU por ejemplo) en una Tabla y devolverla en una tabla diferente como =BUSCARV(), =COINCIDIR(), =INDICE() o la que utilizaremos aquí =BUSCARV().
+Estructura de los datos: Buenas prácticas.
+Cuando trabajamos con datos en un programa de hoja de cálculo, podemos encontrarnos con problemas cuando cambia la estructura de la hoja. Por ejemplo, si hacemos referencia a la celda =P2 en una fórmula, pero Jumpseller agrega una nueva columna antes de la columna P, la fórmula será incorrecta. Para evitar este problema y facilitar el trabajo con los datos, podemos organizarlos en tablas etiquetadas.
+Al hacerlo, podemos utilizar etiquetas como
+=[@SKU]
+en lugar de hacer referencia a celdas concretas como ```=P2``. Esta fórmula devolverá el valor de la columna SKU de la fila actual, independientemente de cualquier cambio en el diseño de la hoja.
+También en estas tablas de Microsoft Excel, si la nombraras MiTabla, en vez de hacer una fórmula como
+=sum(a4:a12)
+, podrías escribir una fórmula humanizada como
+=sum(MiTabla[Stock])
+, ¡muy fácil de leer!. Así se puede crear una Tabla excel:
+Rangos de datos en tablas
+Ahora convierte las dos tablas que ya deberías tener en Excel, suponiendo que la tabla Externa tiene el nombre de;
+origen
+.
+Tabla de Origen
+¡Muy bien! ahora tendrás una tabla de Excel con encabezados, formato y herramientas útiles para trabajar con tus datos, como ordenar, filtrar y hacer cálculos. La gran ventaja de utilizar tablas en lugar de rangos es que puedes utilizar fórmulas que hagan referencia a nombres de columnas en lugar de utilizar letras de rangos.
+El siguiente paso es crear una fórmula que conecte tu fuente de datos con la tabla que utilizarás para importar a Jumpseller. Para ello, utilizaremos la función =BUSCARV() o =XLOOKUP en inglés, que nos permitirá utilizar referencias directas de tablas en las fórmulas.
+Haz clic en la primera celda de la columna Stock, y para obtener el valor del stock de la tabla de origen, utiliza la siguiente fórmula:
+=BUSCARV([@SKU];origen[SKU];origen[Inventory Level];0;0;1)
+En esta fórmula, la función =BUSCARV va a la búsqueda del valor [@SKU] en la columna SKU de la tabla de origen y, a continuación, devuelve el valor correspondiente encontrado en la columna Inventario.
+El primer parámetro
+“0”
+indica a la fórmula que devuelva un cero si no encuentra el SKU, el segundo
+“0”
+indica a la fórmula que busque una coincidencia exacta de SKU, mientras que el último parámetro
+“1”
+especifica a la función que busque de arriba abajo en la tabla.
+Al igual que la gestión del inventario, mantener los precios actualizados es muy sencillo con esta fórmula:
+=BUSCARV([@SKU];origen[SKU];origen[Price];0;0;1)
+(Nota: “origen” es el nombre de la tabla de origen a la que se hace referencia en la fórmula).
+Actualizar Stock y Precio con Xlookup
+De este modo, podrás importar tus datos a Jumpseller con facilidad, al tiempo que le incorporarás un toque de creatividad a tu trabajo.
+Notas finales sobre el manejo de CSV en Excel.
+Ten en cuenta que Excel puede ser una herramienta útil para trabajar con archivos CSV (valores separados por comas), pero puede no ser la mejor opción para convertir archivos a CSV. Esto se debe a que Excel no siempre conserva el formato y la estructura del archivo original al convertirlo a CSV.
+Por ejemplo, Excel puede utilizar delimitadores diferentes (como punto y coma o tabuladores) de los que se utilizan habitualmente en los archivos CSV (que suelen utilizar comas). Esto puede causar problemas al importar el archivo en otras aplicaciones que esperan que los archivos CSV tengan un formato específico.
+Además, Excel puede añadir formato o caracteres especiales que no son compatibles con los archivos CSV, lo que puede provocar errores o pérdida de datos al importar el archivo a otras aplicaciones.
+Por ello, a menudo se recomienda utilizar herramientas especializadas o scripts diseñados para convertir archivos a CSV, que pueden garantizar que el archivo resultante tenga el formato adecuado y sea compatible con otras aplicaciones. Un truco sencillo para superar este problema es: subir un archivo Excel en formato Excel a Google Sheets y luego descarga el CSV, de esta forma tu CSV será compatible con la mayoría de las plataformas.
+Problemas & Soporte
+En soporte siempre hacemos la misma lista de pasos para reproducir y confirmar un posible problema:
+Reducir los productos en el archivo CSV a
+solo uno
+;
+Importa ese CSV a
+Google Sheets
+;
+Exporta ese único producto en Google Sheets a CSV y importalo en tu tienda. Confirma que el problema todavía existe;
+Envía el enlace
+Google Sheets
+con los permisos de edición a
+nuestro equipo
+Nosotros haremos estos mismos 4 pasos en una tienda de pruebas y confirmaremos el problema.
+Preguntas Frecuentes
+Es posible importar productos sin campos personalizados?
+Sí, puede importar productos sin campos personalizados. Además, los campos personalizados no se eliminan al importar para protección.
+Es posible eliminar campos personalizados para mis productos?
+Se recomienda NO eliminar los campos personalizados a través del CSV.
+Tengo un sistema de inventarios que me gustaría sincronizar con Jumpseller para hacer cargas y actualizar inventario.
+Es posible hacer eso mediante nuestra
+API
+para ello es necesario hacer una integración, si tienes un desarrollador que te apoye con la parte técnica lo puedes poner en contacto con nosotros o te podemos recomendar alguno de nuestra lista de
+profesionales
+para que puedas lograrlo.
+Hay forma de actualizar de manera masiva los campos personalizados?
+Sí, es posible actualizar los campos personalizados de manera masiva, pero hay una limitación importante a tener en cuenta:
+Importante: No es posible tener ese nuevo campo en la posición 3 para un producto, en la 4 para otro, y en la 5 para otro. La plataforma no “detecta” el campo por su nombre en distintas columnas, sino por su posición fija en el archivo.
+Para agregar un nuevo campo personalizado a todos los productos, tendrás que:
+Unificar la estructura del CSV para que todos los productos tengan el mismo número de campos personalizados (aunque algunos queden vacíos).
+Colocar el nuevo campo personalizado en una columna nueva al final, y asegurarte de que todos los productos lo tengan en esa misma posición, aunque en algunos quede sin valor.
+Esto significa que si un producto tiene 2 campos y otro tiene 3, necesitarás normalizar todos para que tengan la misma estructura de columnas, agregando celdas vacías cuando sea necesario. Solo así podrás introducir un nuevo campo (por ejemplo, en la columna 4) sin que se mezcle o se interprete de forma incorrecta.
+Si tienes preguntas adicionales puedes escribirnos a nuestro
+canal de soporte
+y siempre estaremos atentos a cualquier otra inquietud que se presente.
+Artículos Relacionados
+Cómo escribir descripciones de productos que se vendan
+Aprende a escribir descripciones de productos que vendan, destaquen beneficios y conviertan visitas en compradores con más facilidad.

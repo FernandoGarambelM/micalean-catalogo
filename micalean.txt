@@ -1,0 +1,4 @@
+[0.00s -> 16.74s]  Tavo, ahí te mandé la imagen, aparece la foto de los andadores y sus especificaciones, o sea, qué función cumple cada andador, qué es lo que trae, si trae musical, si viene con freno, cuántas alturas son, y también el tema de las características, ¿no?
+[16.74s -> 32.66s]  Pero también si te das cuenta hay una parte donde aparece y dice caja de cuatro, eso lo borrarías donde dice caja de cuatro, ¿no? Se tendría que obviar eso. Y otro también que se tendría que obviar son la parte del precio.
+[0.00s -> 4.42s]  Porque manejaríamos otro tipo de precios, en el caso de la tienda virtual.
+[0.00s -> 13.74s]  Esa información es la información que nos da el mayorista, más o menos lo que te estoy viendo es un ejemplo, porque otras fotos de eso tengo colores que son de esta temporada y las imágenes individuales.

@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.system_generated/
+test_*
+prueba_*
+*.log
+*.zip
+panel6_crop.png
+twiscar_clean_cutout.png
+
+# Omitir fotos pesadas originales de WhatsApp para mantener el repositorio liviano (<2MB)
+productos/
+micalean/
+Reuniones/
