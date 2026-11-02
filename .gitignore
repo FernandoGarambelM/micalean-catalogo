@@ -6,16 +6,22 @@ test_*
 prueba_*
 *.log
 *.zip
-panel6_crop.png
-twiscar_clean_cutout.png
+*.gs
+.env
 
-# Mantener solo localmente (no subir al repositorio de GitHub)
+# Directorios de trabajo local y medios brutos (no subir a GitHub)
 productos/
 micalean/
 Reuniones/
-*.py
+Pruebas/
+pruebas_temporales/
+raw_media/
+catalogo_data/
+apps_script/
+scripts/
+docs/
+.agents/
+
+# Extensiones locales
 *.txt
 *.md
-plantilla_productos.csv
-documentacion_importacion_companera.csv
-micalean.png
