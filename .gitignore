@@ -21,6 +21,12 @@ apps_script/
 scripts/
 docs/
 .agents/
+auditoria_catalogo/
+imagenes_auto/
+models/
+recortes_manuales/
+scratch/
+jumpseller_productos_listos.csv
 
 # Extensiones locales
 *.txt
